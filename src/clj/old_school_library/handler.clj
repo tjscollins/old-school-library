@@ -2,6 +2,7 @@
   (:require [compojure.core :refer [routes wrap-routes]]
             [old-school-library.layout :refer [error-page]]
             [old-school-library.routes.home :refer [home-routes]]
+            [old-school-library.routes.worksof :refer [worksof-routes]]
             [compojure.route :as route]
             [old-school-library.env :refer [defaults]]
             [mount.core :as mount]
@@ -16,10 +17,14 @@
     (-> #'home-routes
         (wrap-routes middleware/wrap-csrf)
         (wrap-routes middleware/wrap-formats))
+    (-> #'worksof-routes
+        (wrap-routes middleware/wrap-csrf)
+        (wrap-routes middleware/wrap-formats))
     (route/not-found
       (:body
         (error-page {:status 404
-                     :title "page not found"})))))
+                     :title "page not found"
+                     :body "<h1>Page not found</h1>"})))))
 
 
 (defn app [] (middleware/wrap-base #'app-routes))

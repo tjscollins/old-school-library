@@ -5,9 +5,11 @@
 
   :dependencies [[cljs-ajax "0.5.9"]
                  [com.novemberain/monger "3.1.0"]
+                 [com.google.guava/guava "21.0"]
                  [compojure "1.6.0"]
                  [cprop "0.1.10"]
                  [funcool/struct "1.0.0"]
+                 [garden "1.3.2"]
                  [luminus-immutant "0.2.3"]
                  [luminus-nrepl "0.1.4"]
                  [luminus/ring-ttl-session "0.3.2"]
@@ -17,6 +19,7 @@
                  [mount "0.1.11"]
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.521" :scope "provided"]
+                 [org.clojure/data.json "0.2.6"]
                  [org.clojure/tools.cli "0.3.5"]
                  [org.clojure/tools.logging "0.3.1"]
                  [org.webjars.bower/tether "1.4.0"]
@@ -29,6 +32,7 @@
                  [ring-webjars "0.1.1"]
                  [ring/ring-core "1.6.0"]
                  [ring/ring-defaults "0.3.0"]
+                 [ring/ring-json "0.4.0"]
                  [secretary "1.2.3"]
                  [selmer "1.10.7"]]
 
