@@ -6,14 +6,15 @@
 
 (deftest test-routes
   "Verify that all routes function as expected"
-  (testing "index route"
+  (testing "GET /"
     (let [response ((app) (request :get "/"))]
       (is (= 200 (:status response)))))
 
-  (testing "/worksof/:author route"
+  (testing "GET /worksof/:author"
     (let [response ((app) (request :get "/worksof/shakespeare"))]
       (is (= 200 (:status response)))
       (let [data (json/read-str (:body response))]
+        ;; (println data)
         (is (= "William Shakespeare" (get-in data ["author"])))
         (is (= "All's Well That Ends Well" (first (get-in data ["titles"]))))
         (is (= "Winter's Tale" (last (get-in data ["titles"]))))

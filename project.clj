@@ -11,7 +11,7 @@
                  [funcool/struct "1.0.0"]
                  [garden "1.3.2"]
                  [luminus-immutant "0.2.3"]
-                 [luminus-nrepl "0.1.4"]
+                 [luminus-nrepl "0.1.4"] 
                  [luminus/ring-ttl-session "0.3.2"]
                  [markdown-clj "0.9.99"]
                  [metosin/muuntaja "0.2.1"]
@@ -112,7 +112,10 @@
                   :doo {:build "test"}
                   :source-paths ["env/dev/clj"]
                   :resource-paths ["env/dev/resources"]
-                  :repl-options {:init-ns user}
+                  :repl-options {:init-ns user
+                                 :init (do
+                                         (require '[clojure.test :refer [run-tests]])
+                                         (require 'figwheel-sidecar.auto-builder))}
                   :injections [(require 'pjstadig.humane-test-output)
                                (pjstadig.humane-test-output/activate!)]}
    :project/test {:resource-paths ["env/test/resources"]
