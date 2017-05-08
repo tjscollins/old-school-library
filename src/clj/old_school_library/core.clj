@@ -20,7 +20,7 @@
                       (assoc :handler (handler/app))
                       (update :port #(or (-> env :options :port) %))))
                 :stop
-                (http/stop http-server))
+                (http/stop http-server))y
 
 (mount/defstate ^{:on-reload :noop}
                 repl-server

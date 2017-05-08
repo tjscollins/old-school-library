@@ -27,4 +27,7 @@
                      :body "<h1>Page not found</h1>"})))))
 
 
-(defn app [] (middleware/wrap-base #'app-routes))
+(defn app []
+  (-> 
+   (middleware/wrap-base #'app-routes)
+   ))
