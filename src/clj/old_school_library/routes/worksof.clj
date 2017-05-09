@@ -5,12 +5,9 @@
             [ring.middleware.json :refer [wrap-json-response]]
             [ring.util.response :refer [response]]))
 
-(defn numeric? [s]
+(defn valid-int-str? [s]
   (if-let [s (seq s)]
-    (let [s (if (= (first s) \-) (next s) s)
-          s (drop-while #(Character/isDigit %) s)
-          s (if (= (first s) \.) (next s) s)
-          s (drop-while #(Character/isDigit %) s)]
+    (let [s (drop-while #(Character/isDigit %) s)]
       (empty? s))))
 
 (defn worksof-handler [request]
@@ -27,9 +24,11 @@
        (wrap-json-response worksof-handler))
   (GET "/worksof/:author/:titlenum" [author titlenum]
        (println (str "Request made for work of " author ", work number: " titlenum))
-       (if (numeric? titlenum)
+       (if (valid-int-str? titlenum)
          (wrap-json-response titlenum-handler)
-         (throw (Exception. (str "/worksof/" author "/" titlenum " should be end with an integer"))))))
+         (throw (Exception.
+                 (str "/worksof/" author "/" titlenum
+                      " should be end with an integer"))))))
 
 
 
