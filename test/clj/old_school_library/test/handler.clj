@@ -25,6 +25,7 @@
   (testing "GET /worksof/:author/:titlenum"
     (let [response ((app) (request :get "/worksof/shakespeare/0"))]
       (is (= 200 (:status response)))
+      (is ((comp not nil?) (:body response)))
       (spit "response.txt" response)
       (let [data (json/read-str (:body response))]
         (is (= "All's Well That Ends Well" (get data "title")))
