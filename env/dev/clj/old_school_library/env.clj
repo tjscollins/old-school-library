@@ -12,4 +12,4 @@
    (fn []
      (log/info "\n-=[old-school-library has shut down successfully]=-"))
    :middleware wrap-dev
-   :database-url "mongodb://localhost:27017"})
+   :database-url "mongodb://localhost:27017/old-school-library"})

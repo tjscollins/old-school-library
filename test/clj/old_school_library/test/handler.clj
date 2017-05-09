@@ -13,8 +13,8 @@
   (testing "GET /worksof/:author"
     (let [response ((app) (request :get "/worksof/shakespeare"))]
       (is (= 200 (:status response)))
+      ;; (spit "response.txt" response)
       (let [data (json/read-str (:body response))]
-        ;; (println data)
         (is (= "William Shakespeare" (get-in data ["author"])))
         (is (= "All's Well That Ends Well" (first (get-in data ["titles"]))))
         (is (= "Winter's Tale" (last (get-in data ["titles"]))))

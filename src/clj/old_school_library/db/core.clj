@@ -25,5 +25,10 @@
   (mc/find-one-as-map db "users" {:_id id}))
 
 (defn get-author [key]
-  (mc/find-one-as-map db "authors" {:key key}))
+  ;; (println (str "Getting author: " key))
+  (try
+    (let [author (mc/find-one-as-map db "authors" {:key key})]
+      ;; (println author)
+      (update-in author [:_id] #(.toString %)))
+    (catch Exception e (str ";; Caught exception: " (.getMessage e)))))
   

@@ -9,7 +9,7 @@
 (defn worksof-handler [request]
   ;; (println db/db)
   (let [author (-> request :route-params :author)]
-    (response {:body (db/get-author author)})))
+    (response (db/get-author author))))
   
 
 (defroutes worksof-routes
