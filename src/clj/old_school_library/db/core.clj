@@ -31,4 +31,10 @@
       ;; (println author)
       (update-in author [:_id] #(.toString %)))
     (catch Exception e (str ";; Caught exception: " (.getMessage e)))))
-  
+
+(defn get-work [author titlenum]
+  {:title "All's Well That Ends Well"
+   :date "c. 1604-5"
+   :genre "Comedy Play"
+   :text {:characters ["Abe Froman" "Gulliver" "Lancel Lannister"]
+          :parts ["Act 1" "Act 2" "Act 3" "Act 4" "Act 5"]}})  
