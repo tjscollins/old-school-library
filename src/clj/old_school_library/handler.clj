@@ -29,5 +29,4 @@
 
 (defn app []
   (-> 
-   (middleware/wrap-base #'app-routes)
-   ))
+   (middleware/wrap-base #'app-routes)))

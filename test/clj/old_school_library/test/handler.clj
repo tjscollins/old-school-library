@@ -4,12 +4,14 @@
             [ring.mock.request :refer :all]
             [old-school-library.handler :refer :all]))
 
-(deftest test-routes
-  "Verify that all routes function as expected"
+(deftest static-routes
+  "Verify that landing page loads"
   (testing "GET /"
     (let [response ((app) (request :get "/"))]
-      (is (= 200 (:status response)))))
+      (is (= 200 (:status response))))))
 
+(deftest api-routes
+  "Verify that json api routes respond correctly"
   (testing "GET /worksof/:author"
     (let [response ((app) (request :get "/worksof/shakespeare"))]
       (is (= 200 (:status response)))
@@ -26,13 +28,15 @@
     (let [response ((app) (request :get "/worksof/shakespeare/0"))]
       (is (= 200 (:status response)))
       (is ((comp not nil?) (:body response)))
-      (spit "response.txt" response)
+      ;; (spit "response.txt" response)
       (let [data (json/read-str (:body response))]
         (is (= "All's Well That Ends Well" (get data "title")))
         (is (= "c. 1604-5" (get data "date")))
         (is (= "Comedy Play" (get data "genre")))
-        (is (map? (get data "text"))))))
+        (is (map? (get data "text")))))))
 
-  (testing "invalid routes"
+(deftest invalid-routes
+  "Verify that invalid routes correctly return 404"
+  (testing "GET /randomly"
     (let [response ((app) (request :get "/invalid"))]
       (is (= 404 (:status response))))))
