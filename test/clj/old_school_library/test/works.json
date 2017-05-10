@@ -1,0 +1,20 @@
+[{
+  "title" : "All's Well That Ends Well",
+  "date" : "c. 1604-5",
+  "genre" : "Comedy Play",
+  "author" : "William Shakespeare",
+  "text" : {
+    "characters" : [ 
+      "Abe Froman", 
+      "Gulliver", 
+      "Lancel Lannister"
+    ],
+    "parts" : {
+      "Act 1": [],
+      "Act 2": [],
+      "Act 3": [], 
+      "Act 4": [],
+      "Act 5": []
+    }
+  }
+}]
