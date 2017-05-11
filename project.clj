@@ -5,6 +5,7 @@
 
   :dependencies [[cljs-ajax "0.5.9"]
                  [com.novemberain/monger "3.1.0"]
+                 [com.novemberain/validateur "2.5.0"]
                  [com.google.guava/guava "21.0"]
                  [compojure "1.6.0"]
                  [cprop "0.1.10"]

@@ -1,0 +1,15 @@
+# DEV Plan for The Old School Library
+# Author: Tyler Collins
+# Date: 2017-05-11
+
+* TODO Prepare 1st Release of The Old School Library
+** Front End Features
+*** TODO Landing Page
+*** TODO Author Bio Templates
+*** TODO Literary work templates
+*** TODO Responsive layout
+** Back End Features
+*** TODO Build database of texts
+*** TODO Implement routes to serve author bio pages
+*** TODO Implement routes to serve literary works
+*** TODO Implement Etymonline integration

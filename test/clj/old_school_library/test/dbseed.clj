@@ -29,15 +29,11 @@
 (deftest seed-test
   "test db seed function"
   (testing "dbseed/seed"
-    (spit "seed.txt" (seed))
+    ;; (spit "seed.txt" (seed))
     (let [[authors works] (seed)]
       (is (every?
-           #(valid?
-            v/authors-validator
-            %)
+           #(valid? v/authors-validator %)
            authors))
       (is (every?
-           #(valid?
-             v/works-validator
-             %)
+           #(valid? v/works-validator %)
            works)))))
