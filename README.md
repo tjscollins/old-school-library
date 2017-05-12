@@ -1,8 +1,8 @@
 # old-school-library
 
-generated using Luminus version "2.9.11.53"
+## About
 
-FIXME
+The Old School Library is an open-source educational resource meant to serve Medieval and Early Modern literary texts to readers and researchers.  The Old School library will allow readers to access Old English, Middle English, and Modern English text with annotations, and to cross-reference those texts with linguistic and etymological resources.
 
 ## Prerequisites
 
